@@ -1,4 +1,4 @@
-import { Card, Input } from "@repo/ui";
+import { Card } from "@repo/ui";
 import React from "react";
 
 function Signup() {
@@ -11,11 +11,8 @@ function Signup() {
             <p>Already have an account?</p>
             <a>Sign in now</a>
           </div>
+          <div>form</div>
         </div>
-        <form className="">
-          <Input placeholder="Email" className="bg-black" />
-          <Input placeholder="Password" className="bg-black" />
-        </form>
       </Card>
     </div>
   );

@@ -1,3 +1,5 @@
+"use client";
+
 export function Navbar() {
   return (
     <div className="w-full px-8 md:px-12 py-6 flex justify-between">
