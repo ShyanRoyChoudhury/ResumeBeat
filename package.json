@@ -1,5 +1,5 @@
 {
-  "name": "ResumeBeat",
+  "name": "resumebeat",
   "private": true,
   "scripts": {
     "build": "turbo build",
