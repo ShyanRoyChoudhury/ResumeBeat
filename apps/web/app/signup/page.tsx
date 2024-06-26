@@ -1,5 +1,5 @@
-import { Card } from "@repo/ui";
-import React from "react";
+import { Card, SignupForm } from '@repo/ui';
+import React from 'react';
 
 function Signup() {
   return (
@@ -11,7 +11,7 @@ function Signup() {
             <p>Already have an account?</p>
             <a>Sign in now</a>
           </div>
-          <div>form</div>
+          <SignupForm />
         </div>
       </Card>
     </div>

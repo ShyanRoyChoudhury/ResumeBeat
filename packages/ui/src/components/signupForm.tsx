@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { signupFormSchema } from "@repo/zod";
-import { z } from "zod";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { signupFormSchema } from '@repo/zod';
+import { z } from 'zod';
 import {
   Button,
   Form,
@@ -14,14 +14,14 @@ import {
   FormLabel,
   FormMessage,
   Input,
-} from "./ui";
+} from './ui';
 
-function signupForm() {
+export function SignupForm() {
   const form = useForm<z.infer<typeof signupFormSchema>>({
     resolver: zodResolver(signupFormSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
     },
   });
 
@@ -29,7 +29,7 @@ function signupForm() {
   function onSubmit(values: z.infer<typeof signupFormSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    alert("singup alert");
+    alert('singup alert');
   }
   return (
     <Form {...form}>
@@ -71,5 +71,3 @@ function signupForm() {
     </Form>
   );
 }
-
-export default signupForm;
