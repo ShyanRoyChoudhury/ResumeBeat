@@ -66,7 +66,9 @@ export function SignupForm() {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        <Button type="submit" className="bg-[#23297F]">
+          Signup
+        </Button>
       </form>
     </Form>
   );
