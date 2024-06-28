@@ -46,7 +46,7 @@ const Editor = ({ className }: { className?: string }) => {
     editorProps: {
       attributes: {
         class:
-          'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none h-[1174px] max-h-[1174px]',
+          'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none h-[1174px] max-h-[1174px] border shadow-xl',
       },
     },
   });

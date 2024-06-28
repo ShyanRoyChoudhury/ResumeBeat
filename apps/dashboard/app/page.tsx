@@ -1,4 +1,4 @@
-import { Button, Footer } from '@repo/ui';
+import { Footer } from '@repo/ui';
 import Image from 'next/image';
 import Link from 'next/link';
 import Marquee from 'react-fast-marquee';
