@@ -1,11 +1,12 @@
-import React from "react";
-import Editor from "../../components/Editor";
+import React from 'react';
+import Editor from '../../components/Editor';
+import EditorController from '../../components/EditorController';
 
 function editor() {
   return (
-    <div>
-      <Editor />
-      <div className="bg-emerald-300">web div</div>
+    <div className="md:flex h-[calc(100vh_-_88px)]">
+      <EditorController className="md:w-1/2" />
+      <Editor className="md:w-1/2" />
     </div>
   );
 }

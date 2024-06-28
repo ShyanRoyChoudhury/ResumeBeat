@@ -1,10 +1,13 @@
-"use client";
+'use client';
 
-import { useEditor, EditorContent } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
-import { Color } from "@tiptap/extension-color";
-import TextStyle from "@tiptap/extension-text-style";
-const Editor = () => {
+import { useEditor, EditorContent } from '@tiptap/react';
+import StarterKit from '@tiptap/starter-kit';
+import { Color } from '@tiptap/extension-color';
+import TextStyle from '@tiptap/extension-text-style';
+import jsPDF from 'jspdf';
+import { Button, cn } from '@repo/ui';
+
+const Editor = ({ className }: { className?: string }) => {
   const editor = useEditor({
     extensions: [StarterKit, Color, TextStyle],
     content: `
@@ -43,30 +46,41 @@ const Editor = () => {
     editorProps: {
       attributes: {
         class:
-          "prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none h-[1174px] max-h-[1174px]",
+          'prose prose-sm sm:prose-base lg:prose-lg xl:prose-2xl m-5 focus:outline-none h-[1174px] max-h-[1174px]',
       },
     },
   });
   if (!editor) {
     return null;
   }
+
+  const downloadPDF = () => {
+    const doc = new jsPDF({ unit: 'px', format: 'a4' });
+    var source = editor.getText();
+    doc.setProperties({
+      title: 'Resume',
+    });
+    doc.text(source, 0, 0);
+    doc.save('a4.pdf');
+  };
   return (
-    <div>
+    <div className={cn(`f-full overflow-y-auto`, className)}>
       <input
         type="color"
         onInput={(event: any) =>
           editor.chain().focus().setColor(event.target.value).run()
         }
-        value={editor.getAttributes("textStyle").color}
+        value={editor.getAttributes('textStyle').color}
       />
       <button
-        onClick={() => editor.chain().focus().setColor("#958DF1").run()}
+        onClick={() => editor.chain().focus().setColor('#958DF1').run()}
         className={
-          editor.isActive("textStyle", { color: "#958DF1" }) ? "is-active" : ""
+          editor.isActive('textStyle', { color: '#958DF1' }) ? 'is-active' : ''
         }
       >
         purple
       </button>
+      <Button onClick={downloadPDF}>Download</Button>
       <EditorContent editor={editor} />
     </div>
   );
