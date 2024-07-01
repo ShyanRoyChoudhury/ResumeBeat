@@ -25,8 +25,8 @@ export default function Home() {
 
       <div className="w-screen space-y-6">
         <Marquee pauseOnHover={true} speed={100}>
-          <div className="flex items-center">
-            <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
+          <div className="flex items-center overflow-hidden">
+            <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75 ">
               <Image
                 src={'/assets/pexels-brettjordan-8500465.jpg'}
                 alt="marquee image 1"
@@ -42,27 +42,28 @@ export default function Home() {
                 className="rounded"
               />
             </div>
-          </div>
-          <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
-            <Image
-              src={'/assets/pexels-anntarazevich-5598289.jpg'}
-              alt="marquee image 2"
-              layout="fill"
-              className="rounded"
-            />
-          </div>
-          <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
-            <Image
-              src={'/assets/pexels-markus-winkler-1430818-4101343.jpg'}
-              alt="marquee image 2"
-              layout="fill"
-              className="rounded"
-            />
+
+            <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
+              <Image
+                src={'/assets/pexels-anntarazevich-5598289.jpg'}
+                alt="marquee image 2"
+                layout="fill"
+                className="rounded"
+              />
+            </div>
+            <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
+              <Image
+                src={'/assets/pexels-markus-winkler-1430818-4101343.jpg'}
+                alt="marquee image 2"
+                layout="fill"
+                className="rounded"
+              />
+            </div>
           </div>
         </Marquee>
 
         <Marquee pauseOnHover={true} speed={100} direction="right">
-          <div className="flex items-center">
+          <div className="flex items-center overflow-hidden">
             <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
               <Image
                 src={'/assets/writing-7901174_1280.jpg'}
@@ -79,22 +80,22 @@ export default function Home() {
                 className="rounded"
               />
             </div>
-          </div>
-          <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
-            <Image
-              src={'/assets/paper-8474772_1280.png'}
-              alt="marquee image 2"
-              layout="fill"
-              className="rounded"
-            />
-          </div>
-          <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
-            <Image
-              src={'/assets/pexels-cottonbro-5989925.jpg'}
-              alt="marquee image 2"
-              layout="fill"
-              className="rounded"
-            />
+            <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
+              <Image
+                src={'/assets/paper-8474772_1280.png'}
+                alt="marquee image 2"
+                layout="fill"
+                className="rounded"
+              />
+            </div>
+            <div className="mx-2 h-80 w-80 relative hover:scale-105 transition duration-75">
+              <Image
+                src={'/assets/pexels-cottonbro-5989925.jpg'}
+                alt="marquee image 2"
+                layout="fill"
+                className="rounded"
+              />
+            </div>
           </div>
         </Marquee>
       </div>
