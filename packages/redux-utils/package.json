@@ -1,0 +1,16 @@
+{
+  "name": "@repo/redux-utils",
+  "description": "react redux package tool",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "author": "shyanroychoudhury",
+  "license": "MIT",
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.6",
+    "lodash": "^4.17.21",
+    "react-redux": "^9.1.2"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.17.6"
+  }
+}

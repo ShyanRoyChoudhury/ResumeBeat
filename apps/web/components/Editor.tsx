@@ -6,43 +6,17 @@ import { Color } from '@tiptap/extension-color';
 import TextStyle from '@tiptap/extension-text-style';
 import jsPDF from 'jspdf';
 import { Button, cn } from '@repo/ui';
+import { RootState, useSelector } from '@repo/redux-utils';
+import { useEffect, useState } from 'react';
 
 const Editor = ({ className }: { className?: string }) => {
+  const [editorContent, setEditorContent] = useState('');
+  const formData = useSelector((state: RootState) => state.resumeForm);
+  console.log('state data:', formData);
   const editor = useEditor({
     extensions: [StarterKit, Color, TextStyle],
-    content: `
-    <h2 style="color: #958DF1">
-      Hi there,
-    </h2>
-    <ul data-type="taskList">
-      <li data-type="taskItem" data-checked="true">A list item</li>
-      <li data-type="taskItem" data-checked="false">And another one</li>
-    </ul>
-    <p>
-      this is a basic <em>basic</em> example of <strong>tiptap</strong>. Sure, there are all kind of basic text styles you’d probably expect from a text editor. But wait until you see the lists:
-    </p>
-    <ul>
-      <li>
-        That’s a bullet list with one …
-      </li>
-      <li>
-        … or two list items.
-      </li>
-    </ul>
-    <p>
-      Isn’t that great? And all of that is editable. But wait, there’s more. Let’s try a code block:
-    </p>
-<pre><code class="language-css">body {
-  display: none;
-}</code></pre>
-    <p>
-      I know, I know, this is impressive. It’s only the tip of the iceberg though. Give it a try and click a little bit around. Don’t forget to check the other examples too.
-    </p>
-    <blockquote>
-      Wow, that’s amazing. Good work, boy! 👏
-      <br />
-      — Mom
-    </blockquote>`,
+    content: editorContent,
+    // editable: false,
     editorProps: {
       attributes: {
         class:
@@ -50,6 +24,57 @@ const Editor = ({ className }: { className?: string }) => {
       },
     },
   });
+
+  // Helper function to format the content
+  const formatContent = (formData: any) => {
+    let content = '';
+
+    if (formData.name) content += `<h1>${formData.name}</h1>`;
+    if (formData.title) content += `<h2>${formData.title}</h2>`;
+    if (formData.email) content += `<p>Email: ${formData.email}</p>`;
+    if (formData.number) content += `<p>Phone: ${formData.number}</p>`;
+    if (formData.location) content += `<p>Location: ${formData.location}</p>`;
+    if (formData.website) content += `<p>Website: ${formData.website}</p>`;
+
+    if (formData.summary) {
+      content += `<h3>Summary</h3><p>${formData.summary}</p>`;
+    }
+
+    if (formData.skills && formData.skills.length > 0) {
+      content += `<h3>Skills</h3><ul>`;
+      formData.skills.forEach((skill: any) => {
+        content += `<li>${skill.skill}</li>`;
+      });
+      content += `</ul>`;
+    }
+
+    if (formData.education && formData.education.length > 0) {
+      content += `<h3>Education</h3>`;
+      formData.education.forEach((edu: any) => {
+        content += `<h4>${edu.degree} - ${edu.school}</h4>`;
+        content += `<p>${edu.startDate} - ${edu.endDate}</p>`;
+      });
+    }
+
+    // Add more sections as needed (experience, projects, etc.)
+
+    return content;
+  };
+  useEffect(() => {
+    if (formData) {
+      const formattedContent = formatContent(formData.form);
+      console.log(formattedContent);
+      setEditorContent(formattedContent);
+    }
+  }, [formData]);
+
+  useEffect(() => {
+    if (editor) {
+      console.log('editor content ', editorContent);
+      editor.commands.setContent(editorContent);
+    }
+  }, [formData, editor]);
+
   if (!editor) {
     return null;
   }
