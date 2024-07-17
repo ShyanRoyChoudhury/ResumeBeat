@@ -3,7 +3,7 @@ import { FaLinkedin } from 'react-icons/fa';
 import { Copyright } from 'lucide-react';
 export function Footer() {
   return (
-    <div className="md:px-16 space-y-4 px-14 max-w-screen">
+    <div className="md:px-16 space-y-4 px-14 max-w-screen py-4">
       <div className="flex justify-between ">
         <div className="space-y-4">
           <div className="text-2xl font-semibold">ResumeBeat</div>

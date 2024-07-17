@@ -1,7 +1,7 @@
-import { Footer } from '@repo/ui';
-import WaitlistForm from '@repo/ui/src/components/waitlistForm';
-import Link from 'next/link';
-import Marquee from 'react-fast-marquee';
+import { Footer } from "@repo/ui";
+import WaitlistForm from "@repo/ui/src/components/waitlistForm";
+import Link from "next/link";
+import Marquee from "react-fast-marquee";
 
 export default function Home() {
   return (
@@ -26,8 +26,9 @@ export default function Home() {
         <Marquee speed={60}>
           <div className="flex space-x-8  overflow-hidden">
             <div className="text-9xl">Modular</div>
-            <div className="text-9xl font-londrina">Modular</div>
+            <div className="text-9xl font-vanchrome">Modular</div>
             <div className="text-9xl font-wittgenstein">Modular</div>
+            <div className="text-9xl font-londrina">Modular</div>
           </div>
         </Marquee>
         <Marquee direction="right" speed={90}>
@@ -39,28 +40,32 @@ export default function Home() {
           </div>
         </Marquee>
         <Marquee speed={40}>
-          <div className="flex space-x-8 font-semibold overflow-hidden">
+          <div className="flex space-x-8  overflow-hidden">
             <div className="text-9xl">Templates</div>
             <div className="text-9xl font-wittgenstein">Templates</div>
-            <div className="text-9xl">Templates</div>
+            <div className="text-9xl font-vanchrome">Templates</div>
             <div className="text-9xl font-wittgenstein">Templates</div>
           </div>
         </Marquee>
         <Marquee speed={70} direction="right">
-          <div className="flex space-x-8 font-semibold overflow-hidden">
+          <div className="flex space-x-8 overflow-hidden">
             <div className="text-9xl font-londrina">AI Powered</div>
             <div className="text-9xl">AI Powered</div>
-            <div className="text-9xl font-londrina">AI Powered</div>
-            <div className="text-9xl">AI Powered</div>
+            <div className="text-9xl font-vanchrome">AI Powered</div>
+            <div className="text-9xl ">AI Powered</div>
           </div>
         </Marquee>
       </div>
 
-      <div className="bg-black text-white w-full">
-        <div>
-          <WaitlistForm />
+      <div className="bg-black text-white w-full h-screen py-32 space-y-6  text-center">
+        <div className="flex flex-col justify-center  px-20 md:px-52 lg:px-80 xl:px-100 space-y-4">
+          <div className=" text-6xl font-semibold">Be Part of Whats Next</div>
+          <WaitlistForm className="" />
         </div>
-        <div>ResumeImage</div>
+        <div className="text-2xl px-20 md:px-52">
+          Signup for the launch waitlist and be notified when resumebeat is
+          launched
+        </div>
       </div>
       <Footer />
     </div>
