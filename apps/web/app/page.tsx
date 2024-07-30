@@ -2,6 +2,7 @@ import { Footer } from "@repo/ui";
 import WaitlistForm from "@repo/ui/src/components/waitlistForm";
 import Link from "next/link";
 import Marquee from "react-fast-marquee";
+import { registerWaitlist } from "../lib/waitlist";
 
 export default function Home() {
   return (
@@ -57,10 +58,10 @@ export default function Home() {
         </Marquee>
       </div>
 
-      <div className="bg-black text-white w-full h-screen py-32 space-y-6  text-center">
-        <div className="flex flex-col justify-center  px-20 md:px-52 lg:px-80 xl:px-100 space-y-4">
+      <div className="bg-black text-white w-full h-screen py-32 space-y-8  text-center">
+        <div className="flex flex-col justify-center  px-20 md:px-52 lg:px-80 xl:px-100 space-y-8">
           <div className=" text-6xl font-semibold">Be Part of Whats Next</div>
-          <WaitlistForm className="" />
+          <WaitlistForm className="" registerWaitlist={registerWaitlist} />
         </div>
         <div className="text-2xl px-20 md:px-52">
           Signup for the launch waitlist and be notified when resumebeat is
